@@ -31,7 +31,8 @@ public class DocumentController {
         return documentRepository.findById(id).map(doc -> {
             byte[] content = doc.getOriginalXml().getBytes();
             return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + doc.getOriginalFileName() + "\"")
+                    .header(HttpHeaders.CONTENT_DISPOSITION,
+                            "attachment; filename=\"" + doc.getOriginalFileName() + "\"")
                     .contentType(MediaType.APPLICATION_XML)
                     .body(content);
         }).orElse(ResponseEntity.notFound().build());
@@ -42,7 +43,8 @@ public class DocumentController {
         return documentRepository.findById(id).map(doc -> {
             byte[] content = doc.getTransformedXml().getBytes();
             return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"transformed_" + doc.getOriginalFileName() + "\"")
+                    .header(HttpHeaders.CONTENT_DISPOSITION,
+                            "attachment; filename=\"transformed_" + doc.getOriginalFileName() + "\"")
                     .contentType(MediaType.APPLICATION_XML)
                     .body(content);
         }).orElse(ResponseEntity.notFound().build());

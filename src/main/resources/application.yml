@@ -16,10 +16,11 @@ logging:
   level:
     org.apache.camel: DEBUG
 
+
 # Путь к каталогу для загрузки файлов
 file:
   watch:
-    directory: "C:/Users/User1/Desktop/IT/application_test/src/main/incoming_files"
+    directory: "src/main/incoming_files"
 
 # Путь к XSLT файлу внутри ресурсов
 xslt:
